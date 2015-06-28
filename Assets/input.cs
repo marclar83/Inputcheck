@@ -66,7 +66,7 @@ void FixedUpdate () {
 		checkInput();
 }
 
-void switchDebug(){
+public void switchDebug(){
 	debugActive = !debugActive;
 }
 
@@ -108,7 +108,14 @@ void checkInput(){
 				"Axis10: "+Input.GetAxis("Axis"+i+"_10")+"\n"+
 				"Axis11: "+Input.GetAxis("Axis"+i+"_11")+"\n"+
 				"Axis12: "+Input.GetAxis("Axis"+i+"_12")+"\n"+
-				"Axis13: "+Input.GetAxis("Axis"+i+"_13")
+				"Axis13: "+Input.GetAxis("Axis"+i+"_13")+"\n"+
+				"Axis14: "+Input.GetAxis("Axis"+i+"_14")+"\n"+
+				"Axis15: "+Input.GetAxis("Axis"+i+"_15")+"\n"+
+				"Axis16: "+Input.GetAxis("Axis"+i+"_16")+"\n"+
+				"Axis17: "+Input.GetAxis("Axis"+i+"_17")+"\n"+
+				"Axis18: "+Input.GetAxis("Axis"+i+"_18")+"\n"+
+				"Axis19: "+Input.GetAxis("Axis"+i+"_19")+"\n"+
+				"Axis20: "+Input.GetAxis("Axis"+i+"_20")
 				);	
 		}else{
 		switch (platform){
