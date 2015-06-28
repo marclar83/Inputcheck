@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class input : MonoBehaviour {
-
 	public int controllerNumber = 0;
 	public bool up;
 	public bool down;
@@ -31,7 +30,7 @@ public class input : MonoBehaviour {
 	private int fingerCount;
 	private bool debugActive = false;
 	public Text txtField;
-	 
+	
 	 void Start () {
 	    txtField = GetComponent<Text>();
 	 }
@@ -60,13 +59,9 @@ public class input : MonoBehaviour {
 	  #endif 
 	}
 	
-	void FixedUpdate () {	
-			checkInput();
-	}
+	void FixedUpdate () {checkInput();}
 	
-	public void switchDebug(){
-		debugActive = !debugActive;
-	}
+	public void switchDebug(){debugActive = !debugActive;}
 	
 	void customize(){
 		
