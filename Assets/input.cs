@@ -60,7 +60,6 @@ public class input : MonoBehaviour {
 	  #endif 
 	}
 	
-	
 	void FixedUpdate () {	
 			checkInput();
 	}
@@ -329,8 +328,8 @@ public class input : MonoBehaviour {
 						l2 = Input.GetButton("btn"+i+"_8");
 						r1 = Input.GetButton("btn"+i+"_11");
 						r2 = Input.GetButton("btn"+i+"_9");
-						if (l2) lt = 1 ;else lt = 0;
-						if (r2) rt = 1 ;else rt = 0;
+						lt = (l2) ? 1 : 0;
+						rt = (r2) ? 1 : 0;
 						axisLX = Input.GetAxis("Axis"+i+"_X");
 						axisLY = Input.GetAxis("Axis"+i+"_Y");
 						axisRX = Input.GetAxis("Axis"+i+"_3");
