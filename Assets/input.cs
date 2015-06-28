@@ -31,9 +31,7 @@ public class input : MonoBehaviour {
 	private bool debugActive = false;
 	public Text txtField;
 	
-	 void Start () {
-	    txtField = GetComponent<Text>();
-	 }
+	void Start () {txtField = GetComponent<Text>();}
 	 
 	void Awake() {
 	  #if UNITY_EDITOR
@@ -63,9 +61,7 @@ public class input : MonoBehaviour {
 	
 	public void switchDebug(){debugActive = !debugActive;}
 	
-	void customize(){
-		
-	}
+	void customize(){}
 	
 	void checkInput(){
 		//Debug.Log(platform);
@@ -141,6 +137,7 @@ public class input : MonoBehaviour {
 				break;
 				case "iOS":
 					if (s1.Contains("EXTENDED")){
+						up = Input.GetButton("btn"+i+"_4");
 						down = Input.GetButton("btn"+i+"_6");
 						left = Input.GetButton("btn"+i+"_7");
 						right = Input.GetButton("btn"+i+"_5");
@@ -180,6 +177,7 @@ public class input : MonoBehaviour {
 							"AxisRX: "+axisRX+"\n"+
 							"AxisRY: "+axisRY+"\n");
 					} else { //standard profile
+						up = Input.GetButton("btn"+i+"_4");
 						down = Input.GetButton("btn"+i+"_6");
 						left = Input.GetButton("btn"+i+"_7");
 						right = Input.GetButton("btn"+i+"_5");
