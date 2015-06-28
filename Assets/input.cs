@@ -30,7 +30,6 @@ public class input : MonoBehaviour {
 	private string platform;
 	private int fingerCount;
 	private bool debugActive = false;
-	
 	public Text txtField;
 	 
 	 void Start () {
@@ -78,7 +77,7 @@ public class input : MonoBehaviour {
 		//Debug.Log(platform);
 		int i = controllerNumber;
 		string s1 = Input.GetJoystickNames()[i];
-		s1.ToUpper();
+		s1 = s1.ToUpper();
 			if (debugActive){
 				txtField.text = (Input.GetJoystickNames()[i]+"\n"+
 					"btn0: "+Input.GetButton("btn"+i+"_0")+"\n"+
@@ -160,8 +159,8 @@ public class input : MonoBehaviour {
 						l2 = Input.GetButton("btn"+i+"_10");
 						r1 = Input.GetButton("btn"+i+"_9");
 						r2 = Input.GetButton("btn"+i+"_11");
-						if (Input.GetButton("btn"+i+"_10")) lt = 1 ;else lt = 0;
-						if (Input.GetButton("btn"+i+"_11")) rt = 1 ;else rt = 0;
+						lt = (Input.GetButton("btn"+i+"_10")) ? 1 : 0;
+						rt = (Input.GetButton("btn"+i+"_11")) ? 1 : 0;
 						axisLX = Input.GetAxis("Axis"+i+"_X");
 						axisLY = Input.GetAxis("Axis"+i+"_Y");
 						axisRX = Input.GetAxis("Axis"+i+"_3");
@@ -195,10 +194,8 @@ public class input : MonoBehaviour {
 						btnX = Input.GetButton("btn"+i+"_15");
 						btnY = Input.GetButton("btn"+i+"_12");
 						start = Input.GetButton("btn"+i+"_0");
-						l1 = Input.GetButton("btn"+i+"_8");
-						r1 = Input.GetButton("btn"+i+"_9");
-						if (l1 == false && Input.GetButton("btn"+i+"_10")) l1 = true;
-						if (r1 == false && Input.GetButton("btn"+i+"_11")) r1 = true;	
+						l1 = (Input.GetButton("btn"+i+"_8") || Input.GetButton("btn"+i+"_10")) ? true : false;
+						r1 = (Input.GetButton("btn"+i+"_9") || Input.GetButton("btn"+i+"_11")) ? true : false;
 						txtField.text = (Input.GetJoystickNames()[i]+"\n"+
 							"Up: "+up+"\n"+
 							"Down: "+down+"\n"+
@@ -228,8 +225,8 @@ public class input : MonoBehaviour {
 					l2 = Input.GetButton("btn"+i+"_8");
 					r1 = Input.GetButton("btn"+i+"_11");
 					r2 = Input.GetButton("btn"+i+"_9");
-					if (Input.GetButton("btn"+i+"_8")) lt = 1 ;else lt = 0;
-					if (Input.GetButton("btn"+i+"_9")) rt = 1 ;else rt = 0;
+					lt = (Input.GetButton("btn"+i+"_8")) ? 1 : 0;
+					rt = (Input.GetButton("btn"+i+"_9")) ? 1 : 0;
 					axisLX = Input.GetAxis("Axis"+i+"_X");
 					axisLY = Input.GetAxis("Axis"+i+"_Y");
 					axisRX = Input.GetAxis("Axis"+i+"_3");
