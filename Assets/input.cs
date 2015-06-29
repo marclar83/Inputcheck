@@ -66,7 +66,7 @@ public class input : MonoBehaviour {
 	void checkInput(){
 		//Debug.Log(platform);
 		int i = controllerNumber;
-		int j = (controllerNumber-1 < 0) 0 : controllerNumber-1;
+		int j = (controllerNumber-1 < 0) ? 0 : controllerNumber-1;
 		string s1 = Input.GetJoystickNames()[j];
 		s1 = s1.ToUpper();
 			if (debugActive){
