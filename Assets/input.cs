@@ -266,9 +266,9 @@ public class input : MonoBehaviour {
 					//select = Input.GetButton("btn10");
 					start = Input.GetButton("btn"+i+"_10") || (Input.GetMouseButton(0) && fingerCount == 0);
 					l1 = Input.GetButton("btn"+i+"_4");
-					l2 = Input.GetAxis("Axis"+i+"_7") > 0.2 || Input.GetAxis("Axis"+i+"_13") > 0.2; 
+					l2 = Input.GetAxis("Axis"+i+"_7") > 0.2 || Input.GetAxis("Axis"+i+"_13") > 0.2; //Axis 7 - Xbox 360 - Axis 13 - Moga
 					r1 = Input.GetButton("btn"+i+"_5");
-					r2 = Input.GetAxis("Axis"+i+"_8") > 0.2 || Input.GetAxis("Axis"+i+"_12") > 0.2; 
+					r2 = Input.GetAxis("Axis"+i+"_8") > 0.2 || Input.GetAxis("Axis"+i+"_12") > 0.2; //Axis 8 - Xbox 360 - Axis 12 - Moga
 					lt = Input.GetAxis("Axis"+i+"_13");
 					rt = Input.GetAxis("Axis"+i+"_12");
 					if (Input.GetAxis("Axis"+i+"_8") > 0.05) rt = Input.GetAxis("Axis"+i+"_8");
