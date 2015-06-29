@@ -150,8 +150,8 @@ public class input : MonoBehaviour {
 						l2 = Input.GetButton("btn"+i+"_10");
 						r1 = Input.GetButton("btn"+i+"_9");
 						r2 = Input.GetButton("btn"+i+"_11");
-						lt = (Input.GetButton("btn"+i+"_10")) ? 1 : 0;
-						rt = (Input.GetButton("btn"+i+"_11")) ? 1 : 0;
+						lt = Input.GetAxis("Axis"+i+"_11");
+						rt = Input.GetAxis("Axis"+i+"_12");
 						axisLX = Input.GetAxis("Axis"+i+"_X");
 						axisLY = Input.GetAxis("Axis"+i+"_Y");
 						axisRX = Input.GetAxis("Axis"+i+"_3");
