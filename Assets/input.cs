@@ -66,10 +66,11 @@ public class input : MonoBehaviour {
 	void checkInput(){
 		//Debug.Log(platform);
 		int i = controllerNumber;
-		string s1 = Input.GetJoystickNames()[i];
+		int j = (controllerNumber-1 < 0) 0 : controllerNumber-1;
+		string s1 = Input.GetJoystickNames()[j];
 		s1 = s1.ToUpper();
 			if (debugActive){
-				txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+				txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"btn0: "+Input.GetButton("btn"+i+"_0")+"\n"+
 					"btn1: "+Input.GetButton("btn"+i+"_1")+"\n"+
 					"btn2: "+Input.GetButton("btn"+i+"_2")+"\n"+
@@ -111,7 +112,7 @@ public class input : MonoBehaviour {
 			}else{
 			switch (platform){
 				case "debug":
-					txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"Up: "+up+"\n"+
 					"Down: "+down+"\n"+
 					"Left: "+left+"\n"+
@@ -156,7 +157,7 @@ public class input : MonoBehaviour {
 						axisLY = Input.GetAxis("Axis"+i+"_Y");
 						axisRX = Input.GetAxis("Axis"+i+"_3");
 						axisRY = Input.GetAxis("Axis"+i+"_4");
-						txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+						txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 							"Up: "+up+"\n"+
 							"Down: "+down+"\n"+
 							"Left: "+left+"\n"+
@@ -188,7 +189,7 @@ public class input : MonoBehaviour {
 						start = Input.GetButton("btn"+i+"_0");
 						l1 = (Input.GetButton("btn"+i+"_8") || Input.GetButton("btn"+i+"_10")) ? true : false;
 						r1 = (Input.GetButton("btn"+i+"_9") || Input.GetButton("btn"+i+"_11")) ? true : false;
-						txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+						txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 							"Up: "+up+"\n"+
 							"Down: "+down+"\n"+
 							"Left: "+left+"\n"+
@@ -225,7 +226,7 @@ public class input : MonoBehaviour {
 					axisRY = Input.GetAxis("Axis"+i+"_4");	
 					l3 = Input.GetButton("btn"+i+"_1");
 					r3 = Input.GetButton("btn"+i+"_2");	
-					txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"Up: "+up+"\n"+
 					"Down: "+down+"\n"+
 					"Left: "+left+"\n"+
@@ -279,7 +280,7 @@ public class input : MonoBehaviour {
 					axisRY = Input.GetAxis("Axis"+i+"_4");
 					l3 = Input.GetButton("btn"+i+"_8");
 					r3 = Input.GetButton("btn"+i+"_9");
-					txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"Up: "+up+"\n"+
 					"Down: "+down+"\n"+
 					"Left: "+left+"\n"+
@@ -392,7 +393,7 @@ public class input : MonoBehaviour {
 						l3 = Input.GetButton("btn"+i+"_8");
 						r3 = Input.GetButton("btn"+i+"_9");
 					}
-					txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"Up: "+up+"\n"+
 					"Down: "+down+"\n"+
 					"Left: "+left+"\n"+
@@ -439,7 +440,7 @@ public class input : MonoBehaviour {
 					axisRY = Input.GetAxis("Axis"+i+"_5");
 					l3 = Input.GetButton("btn"+i+"_9");
 					r3 = Input.GetButton("btn"+i+"_10");
-					txtField.text = (Input.GetJoystickNames()[i]+"\n"+
+					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"Up: "+up+"\n"+
 					"Down: "+down+"\n"+
 					"Left: "+left+"\n"+
