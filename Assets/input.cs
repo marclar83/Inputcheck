@@ -69,7 +69,7 @@ public class input : MonoBehaviour {
 		int j = (controllerNumber-1 < 0) ? 0 : controllerNumber-1;
 		string s1 = Input.GetJoystickNames()[j];
 		s1 = s1.ToUpper();
-			if (debugActive){
+			if (debugActive || platform == "debug"){
 				txtField.text = (Input.GetJoystickNames()[j]+"\n"+
 					"btn0: "+Input.GetButton("btn"+i+"_0")+"\n"+
 					"btn1: "+Input.GetButton("btn"+i+"_1")+"\n"+
@@ -88,6 +88,9 @@ public class input : MonoBehaviour {
 					"btn14: "+Input.GetButton("btn"+i+"_14")+"\n"+
 					"btn15: "+Input.GetButton("btn"+i+"_15")+"\n"+
 					"btn16: "+Input.GetButton("btn"+i+"_16")+"\n"+
+					"btn17: "+Input.GetButton("btn"+i+"_17")+"\n"+
+					"btn18: "+Input.GetButton("btn"+i+"_18")+"\n"+
+					"btn19: "+Input.GetButton("btn"+i+"_19")+"\n"+
 					"AxisX: "+Input.GetAxis("Axis"+i+"_X")+"\n"+
 					"AxisY: "+Input.GetAxis("Axis"+i+"_Y")+"\n"+
 					"Axis3: "+Input.GetAxis("Axis"+i+"_3")+"\n"+
@@ -107,35 +110,13 @@ public class input : MonoBehaviour {
 					"Axis17: "+Input.GetAxis("Axis"+i+"_17")+"\n"+
 					"Axis18: "+Input.GetAxis("Axis"+i+"_18")+"\n"+
 					"Axis19: "+Input.GetAxis("Axis"+i+"_19")+"\n"+
-					"Axis20: "+Input.GetAxis("Axis"+i+"_20")
+					"Axis19: "+Input.GetAxis("Axis"+i+"_19")+"\n"+
+					"MouseY: "+Input.GetAxis("Mouse Y")+"\n"+
+					"MouseX: "+Input.GetAxis("Mouse X")+"\n"+
+					"Wheel: "+Input.GetAxis("Mouse ScrollWheel")+"\n"
 					);	
 			}else{
 			switch (platform){
-				case "debug":
-					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
-					"Up: "+up+"\n"+
-					"Down: "+down+"\n"+
-					"Left: "+left+"\n"+
-					"Right: "+right+"\n"+
-					"Select: "+select+"\n"+
-					"Start: "+start+"\n"+
-					"A: "+btnA+"\n"+
-					"B: "+btnB+"\n"+
-					"X: "+btnX+"\n"+
-					"Y: "+btnY+"\n"+
-					"L1: "+l1+"\n"+
-					"L2: "+l2+"\n"+
-					"R1: "+r1+"\n"+
-					"R2: "+r2+"\n"+
-					"L3: "+l3+"\n"+
-					"R3: "+r3+"\n"+
-					"LT: "+lt+"\n"+
-					"RT: "+rt+"\n"+
-					"AxisLX: "+axisLX+"\n"+
-					"AxisLY: "+axisLY+"\n"+
-					"AxisRX: "+axisRX+"\n"+
-					"AxisRY: "+axisRY+"\n");
-				break;
 				case "iOS":
 					if (s1.Contains("EXTENDED")){
 						up = Input.GetButton("btn"+i+"_4");
@@ -204,51 +185,76 @@ public class input : MonoBehaviour {
 					}	
 				break;	
 				case "OSX":
-					up = Input.GetButton("btn"+i+"_4");
-					down = Input.GetButton("btn"+i+"_6");
-					left = Input.GetButton("btn"+i+"_7");
-					right = Input.GetButton("btn"+i+"_5");
-					btnA = Input.GetButton("btn"+i+"_14");
-					btnB = Input.GetButton("btn"+i+"_13");
-					btnX = Input.GetButton("btn"+i+"_15");
-					btnY = Input.GetButton("btn"+i+"_12");
-					select = Input.GetButton("btn"+i+"_0");
-					start = Input.GetButton("btn"+i+"_3");
-					l1 = Input.GetButton("btn"+i+"_10");
-					l2 = Input.GetButton("btn"+i+"_8");
-					r1 = Input.GetButton("btn"+i+"_11");
-					r2 = Input.GetButton("btn"+i+"_9");
-					lt = (Input.GetButton("btn"+i+"_8")) ? 1 : 0;
-					rt = (Input.GetButton("btn"+i+"_9")) ? 1 : 0;
-					axisLX = Input.GetAxis("Axis"+i+"_X");
-					axisLY = Input.GetAxis("Axis"+i+"_Y");
-					axisRX = Input.GetAxis("Axis"+i+"_3");
-					axisRY = Input.GetAxis("Axis"+i+"_4");	
-					l3 = Input.GetButton("btn"+i+"_1");
-					r3 = Input.GetButton("btn"+i+"_2");	
-					txtField.text = (Input.GetJoystickNames()[j]+"\n"+
-					"Up: "+up+"\n"+
-					"Down: "+down+"\n"+
-					"Left: "+left+"\n"+
-					"Right: "+right+"\n"+
-					"Select: "+select+"\n"+
-					"Start: "+start+"\n"+
-					"A: "+btnA+"\n"+
-					"B: "+btnB+"\n"+
-					"X: "+btnX+"\n"+
-					"Y: "+btnY+"\n"+
-					"L1: "+l1+"\n"+
-					"L2: "+l2+"\n"+
-					"R1: "+r1+"\n"+
-					"R2: "+r2+"\n"+
-					"L3: "+l3+"\n"+
-					"R3: "+r3+"\n"+
-					"LT: "+lt+"\n"+
-					"RT: "+rt+"\n"+
-					"AxisLX: "+axisLX+"\n"+
-					"AxisLY: "+axisLY+"\n"+
-					"AxisRX: "+axisRX+"\n"+
-					"AxisRY: "+axisRY+"\n");
+					if (s1.Contains("PLAYSTATION(R)3")){
+						up = Input.GetButton("btn"+i+"_4");
+						down = Input.GetButton("btn"+i+"_6");
+						left = Input.GetButton("btn"+i+"_7");
+						right = Input.GetButton("btn"+i+"_5");
+						btnA = Input.GetButton("btn"+i+"_14");
+						btnB = Input.GetButton("btn"+i+"_13");
+						btnX = Input.GetButton("btn"+i+"_15");
+						btnY = Input.GetButton("btn"+i+"_12");
+						select = Input.GetButton("btn"+i+"_0");
+						start = Input.GetButton("btn"+i+"_3");
+						l1 = Input.GetButton("btn"+i+"_10");
+						l2 = Input.GetButton("btn"+i+"_8");
+						r1 = Input.GetButton("btn"+i+"_11");
+						r2 = Input.GetButton("btn"+i+"_9");
+						lt = (Input.GetButton("btn"+i+"_8")) ? 1 : 0;
+						rt = (Input.GetButton("btn"+i+"_9")) ? 1 : 0;
+						axisLX = Input.GetAxis("Axis"+i+"_X");
+						axisLY = Input.GetAxis("Axis"+i+"_Y");
+						axisRX = Input.GetAxis("Axis"+i+"_3");
+						axisRY = Input.GetAxis("Axis"+i+"_4");	
+						l3 = Input.GetButton("btn"+i+"_1");
+						r3 = Input.GetButton("btn"+i+"_2");	
+					}else {//if (s1.Contains("BOX 360")){   // require : 360Controller driver: https://github.com/d235j/360Controller
+						up = Input.GetButton("btn"+i+"_5");
+						down = Input.GetButton("btn"+i+"_6");
+						left = Input.GetButton("btn"+i+"_7");
+						right = Input.GetButton("btn"+i+"_8");
+						btnA = Input.GetButton("btn"+i+"_16");
+						btnB = Input.GetButton("btn"+i+"_17");
+						btnX = Input.GetButton("btn"+i+"_18");
+						btnY = Input.GetButton("btn"+i+"_19");
+						select = Input.GetButton("btn"+i+"_10");
+						start = Input.GetButton("btn"+i+"_9");
+						l1 = Input.GetButton("btn"+i+"_13");
+						l2 = Input.GetAxis("Axis"+i+"_5") > 0.2;
+						r1 = Input.GetButton("btn"+i+"_14");
+						r2 = Input.GetAxis("Axis"+i+"_6") > 0.2;
+						lt = (Input.GetAxis("Axis"+i+"_5") > 0) ? Input.GetAxis("Axis"+i+"_5") : 0;
+						rt = (Input.GetAxis("Axis"+i+"_6") > 0) ? Input.GetAxis("Axis"+i+"_6") : 0;
+						axisLX = Input.GetAxis("Axis"+i+"_X");
+						axisLY = Input.GetAxis("Axis"+i+"_Y");
+						axisRX = Input.GetAxis("Axis"+i+"_3");
+						axisRY = Input.GetAxis("Axis"+i+"_4");	
+						l3 = Input.GetButton("btn"+i+"_11");
+						r3 = Input.GetButton("btn"+i+"_12");	
+					}
+						txtField.text = (Input.GetJoystickNames()[j]+"\n"+
+						"Up: "+up+"\n"+
+						"Down: "+down+"\n"+
+						"Left: "+left+"\n"+
+						"Right: "+right+"\n"+
+						"Select: "+select+"\n"+
+						"Start: "+start+"\n"+
+						"A: "+btnA+"\n"+
+						"B: "+btnB+"\n"+
+						"X: "+btnX+"\n"+
+						"Y: "+btnY+"\n"+
+						"L1: "+l1+"\n"+
+						"L2: "+l2+"\n"+
+						"R1: "+r1+"\n"+
+						"R2: "+r2+"\n"+
+						"L3: "+l3+"\n"+
+						"R3: "+r3+"\n"+
+						"LT: "+lt+"\n"+
+						"RT: "+rt+"\n"+
+						"AxisLX: "+axisLX+"\n"+
+						"AxisLY: "+axisLY+"\n"+
+						"AxisRX: "+axisRX+"\n"+
+						"AxisRY: "+axisRY+"\n");
 				break;	
 				case "Android":
 					fingerCount = 0;
